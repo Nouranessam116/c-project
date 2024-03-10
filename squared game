@@ -1,10 +1,4 @@
-//File name:CS112_A1_T5_20230450.cpp.Files
 // program:the players will choose the number of coins to play with .each of the two players will choose a squared number.and this number will be removed from the total number of coins .and the one who will reach zero will be the winner. 
-//Author:Nouran Essam Ramadan Kamel
-//ID:20230450
-//Version:1.0
-//Date:27/2/2023
-
 
 #include <iostream>
 using namespace std;
