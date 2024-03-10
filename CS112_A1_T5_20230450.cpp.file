@@ -1,0 +1,121 @@
+//File name:CS112_A1_T5_20230450.cpp.Files
+// program:the players will choose the number of coins to play with .each of the two players will choose a squared number.and this number will be removed from the total number of coins .and the one who will reach zero will be the winner. 
+//Author:Nouran Essam Ramadan Kamel
+//ID:20230450
+//Version:1.0
+//Date:27/2/2023
+
+
+#include <iostream>
+using namespace std;
+#include <string>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+
+int generateRandomNumber(int min, int max) {
+    // Seed the random number generator using current time
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+    
+    // Generate a random number within the range [min, max]
+    return min + (std::rand() % (max - min + 1));
+}
+
+int main() {
+     cout<<"welcome to the sqaured game\n";
+     cout<<"a)choose the number of coins\n";
+     cout<<"b)choose the number of coins randomly\n";//if the players want the number of coins to be chosen randomly 
+     while(true){
+          string choose;
+          cin>>choose;
+          int points;
+          if (choose=="a"){
+              cout<<"\nplease,entre the number of coins";
+              cin>>points;
+              while(points>=0){
+                  cout<<"\nplayer_one,plz entre num_one";
+                  double player_one;
+                  cin>>player_one;
+                  int coins;
+                  double sqrt_one=pow(player_one,0.5);
+                  //to check if the input number is a squared number or not
+                  if (sqrt_one-int(sqrt_one)==0){
+                      coins=points-player_one;
+                  } else { 
+                    cout<<"please,Entre a valid numbe";
+                    cin>>player_one;
+                    coins=points-player_one;
+                  } 
+                  if (coins==0){
+                      cout<<"\nthe winner is player_one";
+                      break;
+                  } else{
+                      cout<<"\nthe number of the remainig coins="<<coins;
+                  } 
+                  cout<<"\nplayer_two,plz entre num_one";
+                  double player_two;
+                  cin>>player_two;
+                  int results;
+                  double sqrt_two=pow(player_two,0.5);
+                  if (sqrt_two-int(sqrt_two)==0){
+                      results=coins-player_two;
+                  } else { 
+                    cout<<"\nplease,Entre a valid number";
+                    cin>>player_two;
+                    results=coins-player_two;
+                  }
+                  if (results==0){
+                      cout<<"\nthe winner is player_two";
+                      break;
+                  } else{
+                      cout<<"\nthe number of the remaining coins="<<results;
+                  }points=results;
+              }
+            } else {
+               int points = generateRandomNumber(10, 1000);
+               //the number of coins will be chosen randomly 
+               cout<<points;
+               while(points>=0){
+                  cout<<"\nplayer_one,plz entre num_one";
+                  double player_one;
+                  cin>>player_one;
+                  int coins;
+                  double sqrt_one=pow(player_one,0.5);
+                  if (sqrt_one-int(sqrt_one)==0){
+                      coins=points-player_one;
+                  } else { 
+                    cout<<"please,Entre a valid number";
+                    cin>>player_one;
+                    coins=points-player_one;
+                  } 
+                  if (coins==0){
+                      cout<<"\nthe winner is player_one";
+                      break;
+                  } else{
+                      cout<<"\nthe number of the remainig coins="<<coins;
+                  } 
+                  cout<<"\nplayer_two,plz entre num_one";
+                  double player_two;
+                  cin>>player_two;
+                  int results;
+                  double sqrt_two=pow(player_two,0.5);
+                  if (sqrt_two-int(sqrt_two)==0){
+                      results=coins-player_two;
+                  } else { 
+                    cout<<"\nplease,Entre a valid number";
+                    cin>>player_two;
+                    results=coins-player_two;
+                  }
+                  if (results==0){
+                      cout<<"\nthe winner is player_two";
+                      break;
+                  } else{
+                      cout<<"\nthe number of the remaining coins="<<results;
+                  }points=results;
+        
+             }
+             
+          }
+    return 0;
+  }
+}
